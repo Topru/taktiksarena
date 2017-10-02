@@ -121,7 +121,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4954634008201348, guid: 82bb5aef9f8725147a931dad710db500, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4954634008201348, guid: 82bb5aef9f8725147a931dad710db500, type: 2}
       propertyPath: m_LocalPosition.z
@@ -406,6 +406,11 @@ Prefab:
     - target: {fileID: 1410245019359998, guid: 5d3307e152263a4409df40387c532970, type: 2}
       propertyPath: m_TagString
       value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114527947866209298, guid: 5d3307e152263a4409df40387c532970,
+        type: 2}
+      propertyPath: bulletSpeed
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5d3307e152263a4409df40387c532970, type: 2}
