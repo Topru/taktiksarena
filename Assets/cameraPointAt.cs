@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class cameraPointAt : MonoBehaviour {
-    public GameObject player1;
-    public GameObject player2;
 
 	// Use this for initialization
 	void Start () {
@@ -13,6 +11,9 @@ public class cameraPointAt : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        GameObject player1 = GameObject.FindWithTag("Player1");
+        GameObject player2 = GameObject.FindWithTag("Player2");
+
         UnityEngine.Vector3 player1loc = player1.transform.position;
         UnityEngine.Vector3 player2loc = player2.transform.position;
 
