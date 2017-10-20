@@ -16,7 +16,11 @@ public class WeaponControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (CrossPlatformInputManager.GetButton("Fire1" + tag))
+        if (CrossPlatformInputManager.GetButtonDown("Fire1" + tag))
+        {
+            weaponController.Charge();
+        }
+        if (CrossPlatformInputManager.GetButtonUp("Fire1" + tag))
         {
             weaponController.Fire();
         }
