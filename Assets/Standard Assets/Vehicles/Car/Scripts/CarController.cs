@@ -36,10 +36,6 @@ namespace UnityStandardAssets.Vehicles.Car
         [SerializeField] private float m_RevRangeBoundary = 1f;
         [SerializeField] private float m_SlipLimit;
         [SerializeField] private float m_BrakeTorque;
-        public GameObject bulletPrefab;
-        public Transform bulletSpawn;
-        public int bulletSpeed;
-        public GameObject explosion;
 
         private Quaternion[] m_WheelMeshLocalRotations;
         private Vector3 m_Prevpos, m_Pos;
@@ -50,8 +46,7 @@ namespace UnityStandardAssets.Vehicles.Car
         private float m_CurrentTorque;
         private Rigidbody m_Rigidbody;
         private const float k_ReversingThreshold = 0.01f;
-        private double timeStamp = 0; //cooldown
-        public double cdAmount;
+        public GameObject explosion;
 
         public bool Skidding { get; private set; }
         public float BrakeInput { get; private set; }
@@ -75,24 +70,6 @@ namespace UnityStandardAssets.Vehicles.Car
 
             m_Rigidbody = GetComponent<Rigidbody>();
             m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl*m_FullTorqueOverAllWheels);
-        }
-
-        public void Fire()
-        {
-            Debug.Log(timeStamp);
-            if (timeStamp <= Time.time)
-            {
-                // Create the Bullet from the Bullet Prefab
-                var bullet = (GameObject)Instantiate(
-                    bulletPrefab,
-                    bulletSpawn.position,
-                    bulletSpawn.rotation);
-
-                // Add velocity to the bullet
-                bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * bulletSpeed;
-                timeStamp = Time.time + cdAmount;
-            }
-
         }
 
         void OnCollisionEnter(Collision col)

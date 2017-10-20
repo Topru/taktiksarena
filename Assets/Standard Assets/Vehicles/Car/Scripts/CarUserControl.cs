@@ -8,25 +8,22 @@ namespace UnityStandardAssets.Vehicles.Car
     public class CarUserControl : MonoBehaviour
     {
         private CarController m_Car; // the car controller we want to use
-
+        private string tag;
 
         private void Awake()
         {
             // get the car controller
             m_Car = GetComponent<CarController>();
+            tag = gameObject.tag;
         }
 
         private void FixedUpdate()
         {
             // pass the input to the car!
-            if(CrossPlatformInputManager.GetButton("Fire1"))
-            {
-                m_Car.Fire();
-            }
-            float h = CrossPlatformInputManager.GetAxis("Horizontal");
-            float v = CrossPlatformInputManager.GetAxis("Vertical");
+            float h = CrossPlatformInputManager.GetAxis("Horizontal" + tag);
+            float v = CrossPlatformInputManager.GetAxis("Vertical" + tag);
 #if !MOBILE_INPUT
-            float handbrake = CrossPlatformInputManager.GetAxis("Jump");
+            float handbrake = CrossPlatformInputManager.GetAxis("Jump" + tag);
             m_Car.Move(h, v, v, handbrake);
 #else
             m_Car.Move(h, v, v, 0f);
