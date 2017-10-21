@@ -9,11 +9,16 @@ public class DamageController : MonoBehaviour {
     public int maxArmor;
     public int currentArmor;
     public GameObject explosion;
-
-	// Use this for initialization
-	void Start () {
+    public GameObject nextSpawn;
+    private GameObject[] spawnList;
+    public GameObject lastSpawn;
+    // Use this for initialization
+    void Start () {
         currentHealth = maxHealth;
-	}
+        spawnList = GameObject.FindGameObjectsWithTag("Spawn");
+        lastSpawn = null;
+        Respawn();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -44,7 +49,20 @@ public class DamageController : MonoBehaviour {
     private void Explode()
     {
         var expl = Instantiate(explosion, transform.position, Quaternion.identity);
-        Destroy(gameObject); // destroy the grenade
         Destroy(expl, (float)0.5);
+        Respawn();
+    }
+
+    private void Respawn()
+    {
+        GameObject lastSpawn = nextSpawn;
+        while(nextSpawn == lastSpawn)
+        {
+            int randomSpawn = Random.Range(0, spawnList.Length);
+            nextSpawn = spawnList[randomSpawn];
+        }
+        gameObject.transform.position = nextSpawn.transform.position;
+        currentHealth = maxHealth;
+        currentArmor = 0;
     }
 }
