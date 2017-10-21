@@ -73,6 +73,7 @@ public class DamageController : MonoBehaviour {
             nextSpawn = spawnList[randomSpawn];
         }
         gameObject.transform.position = nextSpawn.transform.position;
+        gameObject.transform.LookAt(GameObject.Find("Center").transform);
         currentHealth = maxHealth;
         currentArmor = 0;
     }
