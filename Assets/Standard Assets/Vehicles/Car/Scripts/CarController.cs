@@ -46,7 +46,6 @@ namespace UnityStandardAssets.Vehicles.Car
         private float m_CurrentTorque;
         private Rigidbody m_Rigidbody;
         private const float k_ReversingThreshold = 0.01f;
-        public GameObject explosion;
 
         public bool Skidding { get; private set; }
         public float BrakeInput { get; private set; }
@@ -70,23 +69,6 @@ namespace UnityStandardAssets.Vehicles.Car
 
             m_Rigidbody = GetComponent<Rigidbody>();
             m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl*m_FullTorqueOverAllWheels);
-        }
-
-        void OnCollisionEnter(Collision col)
-        {
-            Debug.Log(GameObject.Find("Bullet(Clone)").name);
-            if (col.gameObject.name == GameObject.Find("Bullet(Clone)").name)
-            {
-                Debug.Log("hit");
-                var newCar = Instantiate(gameObject, new Vector3(243, 10, 115), Quaternion.identity);
-                explode();
-            }
-        }
-        private void explode()
-        {
-            var expl = Instantiate(explosion, transform.position, Quaternion.identity);
-            Destroy(gameObject); // destroy the grenade
-            Destroy(expl, (float)0.5);
         }
 
         private void GearChanging()

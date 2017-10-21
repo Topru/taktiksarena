@@ -16,11 +16,7 @@ public class Explode : MonoBehaviour {
 
     void OnCollisionEnter (Collision col)
     {
-        if (col.gameObject.name == "Terrain")
-        {
-            Debug.Log("collision");
-            explode();
-        }
+        explode();
     }
 
     private void explode()

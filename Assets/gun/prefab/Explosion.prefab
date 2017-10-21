@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4635299711993180}
   - component: {fileID: 198828182209110314}
   - component: {fileID: 199038014846371694}
+  - component: {fileID: 114569120219432058}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -41,6 +42,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114569120219432058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1939333948447034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d913fe2e483966459c911a81af0b25c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePerParticle: 10
 --- !u!198 &198828182209110314
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -565,7 +578,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.5
+      value: 4
       mode: 0
       spread: 0
       speed:
@@ -660,7 +673,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 400
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -2364,9 +2377,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 3
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -2510,7 +2523,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -3340,7 +3353,7 @@ ParticleSystemRenderer:
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
+  m_MaxParticleSize: 4
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -3350,7 +3363,7 @@ ParticleSystemRenderer:
   m_Pivot: {x: 0, y: 0, z: 0}
   m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}

@@ -48,7 +48,7 @@ public class WeaponController : MonoBehaviour {
             var bullet = (GameObject)Instantiate(
                 bulletPrefab,
                 bulletSpawn.position,
-                bulletSpawn.rotation);
+                bulletSpawn.rotation, gameObject.transform);
             // Add velocity to the bullet
             bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * charge;
             timeStamp = Time.time + cdAmount;
