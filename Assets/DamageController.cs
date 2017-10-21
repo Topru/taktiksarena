@@ -10,12 +10,21 @@ public class DamageController : MonoBehaviour {
     public int currentArmor;
     public GameObject explosion;
     public GameObject nextSpawn;
-    private GameObject[] spawnList;
     public GameObject lastSpawn;
+    private GameObject[] spawnList;
+    private GameObject enemy;
     // Use this for initialization
     void Start () {
         currentHealth = maxHealth;
         spawnList = GameObject.FindGameObjectsWithTag("Spawn");
+        if (gameObject.tag == "Player1")
+        {
+            enemy = GameObject.FindGameObjectWithTag("Player2");
+        }
+        if (gameObject.tag == "Player2")
+        {
+            enemy = GameObject.FindGameObjectWithTag("Player1");
+        }
         lastSpawn = null;
         Respawn();
     }
@@ -50,13 +59,15 @@ public class DamageController : MonoBehaviour {
     {
         var expl = Instantiate(explosion, transform.position, Quaternion.identity);
         Destroy(expl, (float)0.5);
+        
         Respawn();
     }
 
     private void Respawn()
     {
         GameObject lastSpawn = nextSpawn;
-        while(nextSpawn == lastSpawn)
+        GameObject enemyNextSpaw = enemy.GetComponent<DamageController>().nextSpawn;
+        while(nextSpawn == lastSpawn || nextSpawn == enemyNextSpaw)
         {
             int randomSpawn = Random.Range(0, spawnList.Length);
             nextSpawn = spawnList[randomSpawn];
