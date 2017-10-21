@@ -6,7 +6,6 @@ using Helpers;
 
 public class WeaponControl : MonoBehaviour {
     WeaponController weaponController;
-    private string tag;
     // Use this for initialization
     void Start () {
         GameObject weapon = gameObject.FindChildrenWithTag("Weapon");
