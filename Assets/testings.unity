@@ -167,8 +167,8 @@ MonoBehaviour:
     type: 2}
   bulletSpawn: {fileID: 989139343}
   timeToMaxCharge: 2
-  minCharge: 10
-  maxCharge: 80
+  minCharge: 30
+  maxCharge: 140
   cdAmount: 0.5
 --- !u!1001 &891516193
 Prefab:
@@ -530,8 +530,8 @@ MonoBehaviour:
     type: 2}
   bulletSpawn: {fileID: 140452849}
   timeToMaxCharge: 2
-  minCharge: 10
-  maxCharge: 80
+  minCharge: 30
+  maxCharge: 140
   cdAmount: 0.5
 --- !u!1001 &1798412726
 Prefab:
