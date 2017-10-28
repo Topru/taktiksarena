@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour {
     public GameObject bulletPrefab;
-    public GameObject explosion;
     public Transform bulletSpawn;
     public double timeToMaxCharge;
     public float minCharge;
@@ -54,13 +53,6 @@ public class WeaponController : MonoBehaviour {
             timeStamp = Time.time + cdAmount;
         }
         onCd = true;
-    }
-
-    private void explode()
-    {
-        var expl = Instantiate(explosion, transform.position, Quaternion.identity);
-        Destroy(gameObject); // destroy the grenade
-        Destroy(expl, (float)0.5);
     }
 
     // Update is called once per frame

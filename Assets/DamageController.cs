@@ -16,7 +16,7 @@ public class DamageController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         currentHealth = maxHealth;
-        spawnList = GameObject.FindGameObjectsWithTag("Spawn");
+        spawnList = GameObject.FindGameObjectsWithTag("PlayerSpawn");
         if (gameObject.tag == "Player1")
         {
             enemy = GameObject.FindGameObjectWithTag("Player2");
