@@ -611,6 +611,11 @@ Prefab:
       propertyPath: engineSoundStyle
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 23367776205292766, guid: 5d3307e152263a4409df40387c532970,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6489afef2e375514c86d733960cf45a8, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5d3307e152263a4409df40387c532970, type: 2}
   m_IsPrefabParent: 0
