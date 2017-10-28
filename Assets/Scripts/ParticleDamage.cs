@@ -17,7 +17,8 @@ public class ParticleDamage : MonoBehaviour {
 
 	}
 
-    void OnParticleCollision(GameObject collider) {
+    void OnParticleCollision(GameObject collider)
+    {
         if(collider.tag == "Player1" || collider.tag == "Player2")
         {
             target = collider;
