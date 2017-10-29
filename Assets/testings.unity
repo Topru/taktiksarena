@@ -133,6 +133,7 @@ MonoBehaviour:
   currentHealth: 0
   maxArmor: 50
   currentArmor: 0
+  gameController: {fileID: 1407674633}
   explosion: {fileID: 1939333948447034, guid: 358f68588e476ca488b4bdd5e6048b0f, type: 2}
   nextSpawn: {fileID: 0}
   lastSpawn: {fileID: 0}
@@ -476,6 +477,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1407674631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1407674632}
+  - component: {fileID: 1407674633}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1407674632
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1407674631}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 256.6, y: 0, z: 137.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1407674633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1407674631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab0973ccee9717844ae4514c859003d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1Score: 0
+  player2Score: 0
 --- !u!1 &1492986092 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1410245019359998, guid: 5d3307e152263a4409df40387c532970,
@@ -507,6 +550,7 @@ MonoBehaviour:
   currentHealth: 0
   maxArmor: 50
   currentArmor: 0
+  gameController: {fileID: 1407674633}
   explosion: {fileID: 1939333948447034, guid: 358f68588e476ca488b4bdd5e6048b0f, type: 2}
   nextSpawn: {fileID: 0}
   lastSpawn: {fileID: 0}
@@ -616,6 +660,11 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6489afef2e375514c86d733960cf45a8, type: 2}
+    - target: {fileID: 114527947866209298, guid: 5d3307e152263a4409df40387c532970,
+        type: 2}
+      propertyPath: m_CarDriveType
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5d3307e152263a4409df40387c532970, type: 2}
   m_IsPrefabParent: 0

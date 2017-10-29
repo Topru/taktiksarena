@@ -8,6 +8,7 @@ public class DamageController : MonoBehaviour {
     public int currentHealth;
     public int maxArmor;
     public int currentArmor;
+    public GameController gameController;
     public GameObject explosion;
     public GameObject nextSpawn;
     public GameObject lastSpawn;
@@ -57,6 +58,7 @@ public class DamageController : MonoBehaviour {
 
     private void Explode()
     {
+        gameController.AddScore(enemy.tag, 1);
         var expl = Instantiate(explosion, transform.position, Quaternion.identity);
         Destroy(expl, (float)0.5);
         
