@@ -25,7 +25,7 @@ public class Explode : MonoBehaviour {
 
     private void explode()
     {
-        var expl = Instantiate(explosion, transform.position, Quaternion.identity);
+        Instantiate(explosion, transform.position, Quaternion.identity);
         Destroy(gameObject, 0); // destroy the grenade
     }
 }
