@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Explode : MonoBehaviour {
    public GameObject explosion;
-    private double startTime;
 	// Use this for initialization
 	void Start ()
     {
         Debug.Log("start");
-        startTime = Time.time;
     }
 	
 	// Update is called once per frame
