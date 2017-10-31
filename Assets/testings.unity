@@ -115,78 +115,45 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4846747552933164, guid: 4aa5c4e57fdae5e429382a473e82a69e, type: 2}
+    - target: {fileID: 4570588998793868, guid: 82bb5aef9f8725147a931dad710db500, type: 2}
       propertyPath: m_LocalPosition.x
       value: -7.33
       objectReference: {fileID: 0}
-    - target: {fileID: 4846747552933164, guid: 4aa5c4e57fdae5e429382a473e82a69e, type: 2}
+    - target: {fileID: 4570588998793868, guid: 82bb5aef9f8725147a931dad710db500, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0.0018310547
       objectReference: {fileID: 0}
-    - target: {fileID: 4846747552933164, guid: 4aa5c4e57fdae5e429382a473e82a69e, type: 2}
+    - target: {fileID: 4570588998793868, guid: 82bb5aef9f8725147a931dad710db500, type: 2}
       propertyPath: m_LocalPosition.z
       value: -15.899994
       objectReference: {fileID: 0}
-    - target: {fileID: 4846747552933164, guid: 4aa5c4e57fdae5e429382a473e82a69e, type: 2}
+    - target: {fileID: 4570588998793868, guid: 82bb5aef9f8725147a931dad710db500, type: 2}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4846747552933164, guid: 4aa5c4e57fdae5e429382a473e82a69e, type: 2}
+    - target: {fileID: 4570588998793868, guid: 82bb5aef9f8725147a931dad710db500, type: 2}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4846747552933164, guid: 4aa5c4e57fdae5e429382a473e82a69e, type: 2}
+    - target: {fileID: 4570588998793868, guid: 82bb5aef9f8725147a931dad710db500, type: 2}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4846747552933164, guid: 4aa5c4e57fdae5e429382a473e82a69e, type: 2}
+    - target: {fileID: 4570588998793868, guid: 82bb5aef9f8725147a931dad710db500, type: 2}
       propertyPath: m_LocalRotation.w
       value: -1
       objectReference: {fileID: 0}
-    - target: {fileID: 4846747552933164, guid: 4aa5c4e57fdae5e429382a473e82a69e, type: 2}
+    - target: {fileID: 4570588998793868, guid: 82bb5aef9f8725147a931dad710db500, type: 2}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1220032189781746, guid: 4aa5c4e57fdae5e429382a473e82a69e, type: 2}
-      propertyPath: m_Name
-      value: Car (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1220032189781746, guid: 4aa5c4e57fdae5e429382a473e82a69e, type: 2}
-      propertyPath: m_TagString
-      value: Player2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114016883744060076, guid: 4aa5c4e57fdae5e429382a473e82a69e,
+    - target: {fileID: 114350667387045496, guid: 82bb5aef9f8725147a931dad710db500,
         type: 2}
       propertyPath: gameController
       value: 
       objectReference: {fileID: 1407674633}
-    - target: {fileID: 23111530356024950, guid: 4aa5c4e57fdae5e429382a473e82a69e,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d425c5c4cb38fd44f95b13e9f94575c2, type: 2}
-    - target: {fileID: 23111530356024950, guid: 4aa5c4e57fdae5e429382a473e82a69e,
-        type: 2}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: d425c5c4cb38fd44f95b13e9f94575c2, type: 2}
-    - target: {fileID: 23697713972913158, guid: 4aa5c4e57fdae5e429382a473e82a69e,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d425c5c4cb38fd44f95b13e9f94575c2, type: 2}
-    - target: {fileID: 23272036836736176, guid: 4aa5c4e57fdae5e429382a473e82a69e,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d425c5c4cb38fd44f95b13e9f94575c2, type: 2}
-    - target: {fileID: 23935096982674306, guid: 4aa5c4e57fdae5e429382a473e82a69e,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d425c5c4cb38fd44f95b13e9f94575c2, type: 2}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 4aa5c4e57fdae5e429382a473e82a69e, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: 82bb5aef9f8725147a931dad710db500, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &531992103
 Prefab:

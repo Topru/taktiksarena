@@ -2299,17 +2299,17 @@ MonoBehaviour:
   - {fileID: 114002881934450354}
   - {fileID: 114144717441949104}
   m_CentreOfMassOffset: {x: 0, y: 0, z: 0}
-  m_MaximumSteerAngle: 25
-  m_SteerHelper: 0.644
-  m_TractionControl: 1
-  m_FullTorqueOverAllWheels: 2500
+  m_MaximumSteerAngle: 35
+  m_SteerHelper: 0.55
+  m_TractionControl: 0.4
+  m_FullTorqueOverAllWheels: 5000
   m_ReverseTorque: 500
-  m_MaxHandbrakeTorque: 100000000
-  m_Downforce: 100
+  m_MaxHandbrakeTorque: 1
+  m_Downforce: 10
   m_SpeedType: 1
   m_Topspeed: 150
   m_RevRangeBoundary: 1
-  m_SlipLimit: 0.3
+  m_SlipLimit: 1
   m_BrakeTorque: 20000
 --- !u!146 &146115933422808544
 WheelCollider:
