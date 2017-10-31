@@ -155,5 +155,5 @@ MonoBehaviour:
   bulletSpawn: {fileID: 4020593979379362}
   timeToMaxCharge: 2
   minCharge: 30
-  maxCharge: 140
+  maxCharge: 160
   cdAmount: 0.5
