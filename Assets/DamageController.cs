@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Helpers;
 
 public class DamageController : MonoBehaviour {
 
@@ -14,6 +15,8 @@ public class DamageController : MonoBehaviour {
     public GameObject lastSpawn;
     private GameObject[] spawnList;
     private GameObject enemy;
+    public GameObject weapon = null;
+    public GameObject GameController;
     // Use this for initialization
     void Start () {
         currentHealth = maxHealth;
@@ -67,6 +70,7 @@ public class DamageController : MonoBehaviour {
 
     private void Respawn()
     {
+        GetWeapon();
         GameObject lastSpawn = nextSpawn;
         GameObject enemyNextSpaw = enemy.GetComponent<DamageController>().nextSpawn;
         while(nextSpawn == lastSpawn || nextSpawn == enemyNextSpaw)
@@ -78,5 +82,13 @@ public class DamageController : MonoBehaviour {
         gameObject.transform.LookAt(GameObject.Find("Center").transform);
         currentHealth = maxHealth;
         currentArmor = 0;
+    }
+
+    private void GetWeapon()
+    {
+        GameObject oldWeapon = gameObject.FindChildrenWithTag("Weapon");
+        Destroy(oldWeapon);
+        weapon = GameController.GetComponent<GameController>().GetWeapon(weapon);
+        Instantiate(weapon, gameObject.transform);
     }
 }

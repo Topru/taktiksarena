@@ -7,6 +7,8 @@ public class GameController : MonoBehaviour {
     public int player1Score;
     public int player2Score;
 
+    public GameObject[] weaponList;
+
 	// Use this for initialization
 	void Start () {
         player1Score = 0;
@@ -28,5 +30,16 @@ public class GameController : MonoBehaviour {
         {
             player2Score += score;
         }
+    }
+
+    public GameObject GetWeapon(GameObject lastWeapon)
+    {
+        GameObject weapon = lastWeapon;
+        while(weapon == lastWeapon)
+        {
+            int index = Random.Range(0, weaponList.Length);
+            weapon = weaponList[index];
+        }
+        return weapon;
     }
 }

@@ -21,6 +21,7 @@ public class GunController : MonoBehaviour, IWeapon
     void Start () {
         weaponControl = gameObject.transform.parent.gameObject.GetComponent<WeaponControl>();
         weaponControl.Switched(this);
+        //gameObject.transform.position = gameObject.transform.parent.Find("GunPosition").transform.position;
     }
     public void Charge()
     {
