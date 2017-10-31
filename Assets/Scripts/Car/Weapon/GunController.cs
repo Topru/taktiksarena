@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponController : MonoBehaviour {
+public class GunController : MonoBehaviour, IWeapon
+{
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
     public double timeToMaxCharge;
@@ -14,10 +15,13 @@ public class WeaponController : MonoBehaviour {
     private float charge;
     private bool onCd;
 
+    private WeaponControl weaponControl;
+
     // Use this for initialization
     void Start () {
-		
-	}
+        weaponControl = gameObject.transform.parent.gameObject.GetComponent<WeaponControl>();
+        weaponControl.Switched(this);
+    }
     public void Charge()
     {
         if (timeStamp <= Time.time)

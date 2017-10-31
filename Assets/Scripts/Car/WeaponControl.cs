@@ -5,23 +5,27 @@ using UnityStandardAssets.CrossPlatformInput;
 using Helpers;
 
 public class WeaponControl : MonoBehaviour {
-    WeaponController weaponController;
     // Use this for initialization
+    private IWeapon currentWeapon;
+
     void Start () {
-        GameObject weapon = gameObject.FindChildrenWithTag("Weapon");
-        weaponController = weapon.GetComponent<WeaponController>();
-        tag = gameObject.tag;
+
     }
 	
 	// Update is called once per frame
 	void Update () {
         if (CrossPlatformInputManager.GetButtonDown("Fire1" + tag))
         {
-            weaponController.Charge();
+            currentWeapon.Charge();
         }
         if (CrossPlatformInputManager.GetButtonUp("Fire1" + tag))
         {
-            weaponController.Fire();
+            currentWeapon.Fire();
         }
+    }
+    public void Switched(IWeapon newWeapon)
+    {
+        Debug.Log("New Weapon");
+        currentWeapon = newWeapon;
     }
 }
