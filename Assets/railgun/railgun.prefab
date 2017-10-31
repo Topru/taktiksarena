@@ -15377,3 +15377,4 @@ MonoBehaviour:
   damage: 50
   railParticle: {fileID: 1144784137110218, guid: 84d8ff3b99625da42bea5b492fd1c771,
     type: 2}
+  cdAmount: 1.5
