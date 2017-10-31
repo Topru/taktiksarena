@@ -16,7 +16,6 @@ public class DamageController : MonoBehaviour {
     private GameObject[] spawnList;
     private GameObject enemy;
     public GameObject weapon = null;
-    public GameObject GameController;
     // Use this for initialization
     void Start () {
         currentHealth = maxHealth;
@@ -88,7 +87,7 @@ public class DamageController : MonoBehaviour {
     {
         GameObject oldWeapon = gameObject.FindChildrenWithTag("Weapon");
         Destroy(oldWeapon);
-        weapon = GameController.GetComponent<GameController>().GetWeapon(weapon);
+        weapon = gameController.GetWeapon(weapon);
         Instantiate(weapon, gameObject.transform);
     }
 }
