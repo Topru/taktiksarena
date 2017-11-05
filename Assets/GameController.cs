@@ -6,6 +6,8 @@ public class GameController : MonoBehaviour {
 
     public int player1Score;
     public int player2Score;
+    public GameObject localPlayer;
+    public GameObject camera;
 
     public GameObject[] weaponList;
 
@@ -20,6 +22,16 @@ public class GameController : MonoBehaviour {
 		
 	}
 
+    public void SetLocalPlayer(GameObject player)
+    {
+        camera.SetActive(true);
+        localPlayer = player;
+    }
+    public GameObject GetLocalPlayer()
+    {
+        return localPlayer;
+    }
+
     public void AddScore(string player, int score)
     {
         if(player == "Player1")
@@ -32,14 +44,9 @@ public class GameController : MonoBehaviour {
         }
     }
 
-    public GameObject GetWeapon(GameObject lastWeapon)
+    public GameObject GetWeapon(int index)
     {
-        GameObject weapon = lastWeapon;
-        while(weapon == lastWeapon)
-        {
-            int index = Random.Range(0, weaponList.Length);
-            weapon = weaponList[index];
-        }
+        GameObject weapon = weaponList[index];
         return weapon;
     }
 }

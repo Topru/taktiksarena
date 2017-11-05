@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityStandardAssets.CrossPlatformInput;
 using Helpers;
 
-public class WeaponControl : MonoBehaviour {
+public class WeaponControl : NetworkBehaviour {
     // Use this for initialization
     private IWeapon currentWeapon;
 
@@ -14,6 +15,10 @@ public class WeaponControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
         if (CrossPlatformInputManager.GetButtonDown("Fire1" + tag))
         {
             currentWeapon.Charge();

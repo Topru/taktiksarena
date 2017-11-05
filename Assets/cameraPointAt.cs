@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class cameraPointAt : MonoBehaviour {
+public class cameraPointAt : NetworkBehaviour {
    
     public float zoomFactor;
 
@@ -19,6 +20,12 @@ public class cameraPointAt : MonoBehaviour {
         GameObject player1 = GameObject.FindWithTag("Player1");
         GameObject player2 = GameObject.FindWithTag("Player2");
 
+
+        if(player2 == null)
+        {
+            player2 = GameObject.FindWithTag("Player1");
+        }
+
         UnityEngine.Vector3 player1loc = player1.transform.position;
         UnityEngine.Vector3 player2loc = player2.transform.position;
 
@@ -26,7 +33,7 @@ public class cameraPointAt : MonoBehaviour {
 
 
         float cameraFov = 20f + distance * 1.0f;
-        if(cameraFov > 70)
+        if(cameraFov > 70 || player2 == player1)
         {
             cameraFov = 70;
         }
