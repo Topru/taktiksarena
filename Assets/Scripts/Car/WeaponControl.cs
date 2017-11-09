@@ -21,11 +21,11 @@ public class WeaponControl : NetworkBehaviour {
         }
         if (CrossPlatformInputManager.GetButtonDown("Fire1" + tag))
         {
-            currentWeapon.Charge();
+            currentWeapon.CmdCharge();
         }
         if (CrossPlatformInputManager.GetButtonUp("Fire1" + tag))
         {
-            currentWeapon.Fire();
+            currentWeapon.CmdFire();
         }
     }
     public void Switched(IWeapon newWeapon)

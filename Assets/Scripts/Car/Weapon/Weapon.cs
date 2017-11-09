@@ -5,8 +5,6 @@ using UnityEngine.Networking;
 
 public interface IWeapon
 {
-    [Command]
-    void Fire();
-    [Command]
-    void Charge();
+    void CmdFire();
+    void CmdCharge();
 }

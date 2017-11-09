@@ -17,7 +17,7 @@ public class RailController : MonoBehaviour, IWeapon
         weaponControl = gameObject.transform.parent.gameObject.GetComponent<WeaponControl>();
         weaponControl.Switched(this);
     }
-    public void Charge()
+    public void CmdCharge()
     {
         if (timeStamp+cdAmount <= Time.time)
         {
@@ -51,7 +51,7 @@ public class RailController : MonoBehaviour, IWeapon
         }
         
     }
-    public void Fire()
+    public void CmdFire()
     {
 
     }

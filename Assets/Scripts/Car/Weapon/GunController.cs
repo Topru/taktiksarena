@@ -18,7 +18,6 @@ public class GunController : NetworkBehaviour, IWeapon
     public int parentIdShow;
     [SyncVar(hook = "CallbackSetOwner")]
     public NetworkInstanceId parentId;
-
     private WeaponControl weaponControl;
 
     // Use this for initialization
@@ -27,7 +26,8 @@ public class GunController : NetworkBehaviour, IWeapon
         weaponControl.Switched(this);
         //gameObject.transform.position = gameObject.transform.parent.Find("GunPosition").transform.position;
     }
-    public void Charge()
+    [Command]
+    public void CmdCharge()
     {
         if (timeStamp <= Time.time)
         {
@@ -35,7 +35,8 @@ public class GunController : NetworkBehaviour, IWeapon
         }
         chargeStart = Time.time;
     }
-    public void Fire()
+    [Command]
+    public void CmdFire()
     {
         if (!onCd)
         {
@@ -60,13 +61,12 @@ public class GunController : NetworkBehaviour, IWeapon
             // Add velocity to the bullet
             bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * charge;
             timeStamp = Time.time + cdAmount;
+            NetworkServer.Spawn(bullet);
         }
         onCd = true;
     }
     void CallbackSetOwner(NetworkInstanceId parentId)
     {
-        Debug.Log("asddsa");
-        Debug.Log(parentId);
         GameObject parent = ClientScene.FindLocalObject(parentId);
         gameObject.transform.parent = parent.transform;
     }
