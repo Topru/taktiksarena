@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class GunController : MonoBehaviour, IWeapon
+public class GunController : NetworkBehaviour, IWeapon
 {
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
@@ -14,6 +15,9 @@ public class GunController : MonoBehaviour, IWeapon
     private double chargeStart;
     private float charge;
     private bool onCd;
+    public int parentIdShow;
+    [SyncVar(hook = "CallbackSetOwner")]
+    public NetworkInstanceId parentId;
 
     private WeaponControl weaponControl;
 
@@ -58,6 +62,13 @@ public class GunController : MonoBehaviour, IWeapon
             timeStamp = Time.time + cdAmount;
         }
         onCd = true;
+    }
+    void CallbackSetOwner(NetworkInstanceId parentId)
+    {
+        Debug.Log("asddsa");
+        Debug.Log(parentId);
+        GameObject parent = ClientScene.FindLocalObject(parentId);
+        gameObject.transform.parent = parent.transform;
     }
 
     // Update is called once per frame

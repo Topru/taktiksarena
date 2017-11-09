@@ -82,12 +82,8 @@ public class DamageController : NetworkBehaviour {
             GetWeapon();
         }
         GameObject lastSpawn = nextSpawn;
-        //GameObject enemyNextSpaw = enemy.GetComponent<DamageController>().nextSpawn;
-        //while(nextSpawn == lastSpawn || nextSpawn == enemyNextSpaw)
-        //{
-            int randomSpawn = Random.Range(0, spawnList.Length);
-            nextSpawn = spawnList[randomSpawn];
-        //}
+        int randomSpawn = Random.Range(0, spawnList.Length);
+        nextSpawn = spawnList[randomSpawn];
         gameObject.transform.position = nextSpawn.transform.position;
         gameObject.transform.LookAt(GameObject.Find("Center").transform);
         currentHealth = maxHealth;
@@ -108,21 +104,38 @@ public class DamageController : NetworkBehaviour {
         }
         Debug.Log(weapon.name);
         //GameObject spawnWeapon = Instantiate(weapon, gameObject.transform);
-        CmdSpawn(index);
+        CmdSpawn(index, gameObject);
     }
     [Command]
-    private void CmdSpawn(int index)
+    private void CmdSpawn(int index, GameObject g)
     {
-        GameObject clone = gameController.GetWeapon(index);
-        //GameObject clone = Instantiate(weapon, gameObject.transform);
+        Debug.Log(g.name);
+        weapon = Instantiate(gameController.GetWeapon(index), gameObject.transform);
+        weapon.transform.parent = g.transform;
         if (isServer)
         {
-            NetworkServer.Spawn(clone);
+            NetworkServer.Spawn(weapon);
         }
         else if (isClient)
         {
-            NetworkServer.SpawnWithClientAuthority(clone, base.connectionToClient);
+            NetworkServer.SpawnWithClientAuthority(weapon, base.connectionToClient);
         }
-        clone.transform.parent = gameObject.transform;
+        //clone.transform.parent = gameObject.transform;
+        RpcSyncSpawn(weapon.transform.localPosition, weapon.transform.transform.localRotation, weapon, g);
+        weapon.GetComponent<GunController>().parentId = gameObject.GetComponent<NetworkIdentity>().netId;
+    }
+    [ClientRpc]
+    protected void RpcSyncSpawn(Vector3 localPos, Quaternion localRot, GameObject weapon, GameObject parent)
+    {
+        weapon.transform.parent = parent.transform;
+        weapon.transform.localPosition = localPos;
+        weapon.transform.localRotation = localRot;
+    }
+    public override void OnStartClient()
+    {
+        Debug.Log("testings");
+        GameObject oldWeapon = GameObject.FindGameObjectWithTag("Weapon");
+        GameObject parent = ClientScene.FindLocalObject(oldWeapon.GetComponent<GunController>().parentId);
+        oldWeapon.transform.parent = parent.transform;
     }
 }
