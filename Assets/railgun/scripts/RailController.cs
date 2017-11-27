@@ -7,10 +7,10 @@ public class RailController : MonoBehaviour, IWeapon
     private WeaponControl weaponControl;
     public int damage;
     public GameObject railParticle;
-
+    private float cdPercent;
+    private bool onCd;
     public double cdAmount;
     private double timeStamp = 0; //cooldown
-
     // Use this for initialization
     void Start()
     {
@@ -19,7 +19,7 @@ public class RailController : MonoBehaviour, IWeapon
     }
     public void Charge()
     {
-        if (timeStamp+cdAmount <= Time.time)
+        if (!onCd)
         {
             Vector3 fwd = transform.parent.TransformDirection(Vector3.forward);
             RaycastHit hit;
@@ -48,6 +48,8 @@ public class RailController : MonoBehaviour, IWeapon
                 }
             }
             timeStamp = Time.time;
+            onCd = true;
+            timeStamp = Time.time + cdAmount;
         }
         
     }
@@ -56,9 +58,28 @@ public class RailController : MonoBehaviour, IWeapon
 
     }
 
-    // Update is called once per frame
-    void Update()
+    public float GetCharge()
     {
+        return 0;
+    }
+    public float GetCd()
+    {
+        return cdPercent;
+    }
 
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if (timeStamp <= Time.time)
+        {
+            onCd = false;
+            cdPercent = 0;
+        }
+        if (onCd)
+        {
+            float cd = Mathf.Abs((float)timeStamp - (float)Time.time);
+            float cdLeft = (float)cdAmount - cd;
+            cdPercent = cd / (float)cdAmount * 100;
+        }
     }
 }

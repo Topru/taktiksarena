@@ -90,4 +90,14 @@ public class DamageController : MonoBehaviour {
         weapon = gameController.GetWeapon(weapon);
         Instantiate(weapon, gameObject.transform);
     }
+    public int GetHealth()
+    {
+        //Debug.Log(currentHealth);
+        return currentHealth;
+    }
+    public int GetArmor()
+    {
+        //Debug.Log(currentArmor);
+        return currentArmor;
+    }
 }

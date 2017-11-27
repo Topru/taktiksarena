@@ -14,6 +14,10 @@ public class GunController : MonoBehaviour, IWeapon
     private double chargeStart;
     private float charge;
     private bool onCd;
+    private double chargePercent;
+    private float chargeAmount;
+    private bool countCharge;
+    private float cdPercent;
 
     private WeaponControl weaponControl;
 
@@ -30,13 +34,14 @@ public class GunController : MonoBehaviour, IWeapon
             onCd = false;
         }
         chargeStart = Time.time;
+        countCharge = true;
     }
     public void Fire()
     {
         if (!onCd)
         {
             double chargeTime = Time.time - chargeStart;
-            double chargePercent = chargeTime / timeToMaxCharge * 100;
+            chargePercent = chargeTime / timeToMaxCharge * 100;
             charge = (float)maxCharge / 100 * (float)chargePercent;
 
             if (charge > maxCharge)
@@ -47,7 +52,6 @@ public class GunController : MonoBehaviour, IWeapon
             {
                 charge = minCharge;
             }
-            Debug.Log(charge);
             // Create the Bullet from the Bullet Prefab
             var bullet = (GameObject)Instantiate(
                 bulletPrefab,
@@ -58,10 +62,43 @@ public class GunController : MonoBehaviour, IWeapon
             timeStamp = Time.time + cdAmount;
         }
         onCd = true;
+        countCharge = false;
+        chargeAmount = 0;
+    }
+
+    public float GetCharge()
+    {
+        return chargeAmount;
+    }
+    public float GetCd()
+    {
+        return cdPercent;
     }
 
     // Update is called once per frame
-    void Update () {
-		
-	}
+    void FixedUpdate () {
+        if(countCharge)
+        {
+            double chargeTime = Time.time - chargeStart;
+            double chargePercent = chargeTime / timeToMaxCharge * 100;
+            float charge = (float)maxCharge / 100 * (float)chargePercent;
+
+            if (charge > maxCharge)
+            {
+                charge = maxCharge;
+            }
+            chargeAmount = charge / maxCharge * 100;
+        }
+        if(timeStamp <= Time.time)
+        {
+            onCd = false;
+            cdPercent = 0;
+        }
+        if(onCd)
+        {
+            float cd = Mathf.Abs((float)timeStamp - (float)Time.time);
+            float cdLeft = (float)cdAmount - cd;
+            cdPercent = cd / (float)cdAmount * 100;
+        }
+    }
 }

@@ -9,6 +9,8 @@ TagManager:
   - Weapon
   - Spawn
   - PlayerSpawn
+  - Player1UI
+  - Player2UI
   layers:
   - Default
   - TransparentFX

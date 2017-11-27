@@ -28,4 +28,9 @@ public class WeaponControl : MonoBehaviour {
         Debug.Log("New Weapon");
         currentWeapon = newWeapon;
     }
+
+    public IWeapon GetWeapon()
+    {
+        return currentWeapon;
+    }
 }

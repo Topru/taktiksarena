@@ -6,4 +6,6 @@ public interface IWeapon
 {
     void Fire();
     void Charge();
+    float GetCharge();
+    float GetCd();
 }
