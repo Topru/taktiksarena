@@ -74,6 +74,10 @@ public class GunController : MonoBehaviour, IWeapon
     {
         return cdPercent;
     }
+    public string GetName()
+    {
+        return gameObject.name;
+    }
 
     // Update is called once per frame
     void FixedUpdate () {
@@ -97,7 +101,6 @@ public class GunController : MonoBehaviour, IWeapon
         if(onCd)
         {
             float cd = Mathf.Abs((float)timeStamp - (float)Time.time);
-            float cdLeft = (float)cdAmount - cd;
             cdPercent = cd / (float)cdAmount * 100;
         }
     }

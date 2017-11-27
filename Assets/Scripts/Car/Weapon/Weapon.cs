@@ -8,4 +8,5 @@ public interface IWeapon
     void Charge();
     float GetCharge();
     float GetCd();
+    string GetName();
 }
