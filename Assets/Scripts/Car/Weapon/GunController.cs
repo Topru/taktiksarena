@@ -2,41 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunController : MonoBehaviour, IWeapon
+public class GunController : WeaponMaster
 {
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
     public double timeToMaxCharge;
     public float minCharge;
     public float maxCharge;
-    public double cdAmount;
-    private double timeStamp = 0; //cooldown
     private double chargeStart;
     private float charge;
-    private bool onCd;
     private double chargePercent;
     private float chargeAmount;
     private bool countCharge;
-    private float cdPercent;
 
-    private WeaponControl weaponControl;
-
-    // Use this for initialization
-    void Start () {
-        weaponControl = gameObject.transform.parent.gameObject.GetComponent<WeaponControl>();
-        weaponControl.Switched(this);
-        //gameObject.transform.position = gameObject.transform.parent.Find("GunPosition").transform.position;
-    }
-    public void Charge()
+    public override void Charge()
     {
-        if (timeStamp <= Time.time)
-        {
-            onCd = false;
-        }
         chargeStart = Time.time;
         countCharge = true;
     }
-    public void Fire()
+    public override void Fire()
     {
         if (!onCd)
         {
@@ -66,21 +50,13 @@ public class GunController : MonoBehaviour, IWeapon
         chargeAmount = 0;
     }
 
-    public float GetCharge()
+    public override float GetCharge()
     {
         return chargeAmount;
     }
-    public float GetCd()
-    {
-        return cdPercent;
-    }
-    public string GetName()
-    {
-        return gameObject.name;
-    }
 
     // Update is called once per frame
-    void FixedUpdate () {
+    public override void FixedUpdate () {
         if(countCharge)
         {
             double chargeTime = Time.time - chargeStart;
@@ -93,15 +69,6 @@ public class GunController : MonoBehaviour, IWeapon
             }
             chargeAmount = charge / maxCharge * 100;
         }
-        if(timeStamp <= Time.time)
-        {
-            onCd = false;
-            cdPercent = 0;
-        }
-        if(onCd)
-        {
-            float cd = Mathf.Abs((float)timeStamp - (float)Time.time);
-            cdPercent = cd / (float)cdAmount * 100;
-        }
+        base.FixedUpdate();
     }
 }

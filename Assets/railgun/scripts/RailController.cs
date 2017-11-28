@@ -2,22 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RailController : MonoBehaviour, IWeapon
+public class RailController : WeaponMaster
 {
-    private WeaponControl weaponControl;
     public int damage;
     public GameObject railParticle;
-    private float cdPercent;
-    private bool onCd;
-    public double cdAmount;
-    private double timeStamp = 0; //cooldown
-    // Use this for initialization
-    void Start()
-    {
-        weaponControl = gameObject.transform.parent.gameObject.GetComponent<WeaponControl>();
-        weaponControl.Switched(this);
-    }
-    public void Charge()
+
+    public override void Charge()
     {
         if (!onCd)
         {
@@ -53,36 +43,14 @@ public class RailController : MonoBehaviour, IWeapon
         }
         
     }
-    public void Fire()
+    public override void Fire()
     {
 
     }
 
-    public float GetCharge()
+    public override float GetCharge()
     {
         return 0;
     }
-    public float GetCd()
-    {
-        return cdPercent;
-    }
-    public string GetName()
-    {
-        return gameObject.name;
-    }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        if (timeStamp <= Time.time)
-        {
-            onCd = false;
-            cdPercent = 0;
-        }
-        if (onCd)
-        {
-            float cd = Mathf.Abs((float)timeStamp - (float)Time.time);
-            cdPercent = cd / (float)cdAmount * 100;
-        }
-    }
 }
