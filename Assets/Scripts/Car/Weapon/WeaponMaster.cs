@@ -8,10 +8,11 @@ public class WeaponMaster : MonoBehaviour, IWeapon {
     public float cdPercent;
     public double timeStamp = 0; //cooldown
     public bool onCd;
+    public bool softCd;
     public double cdAmount;
 
     // Use this for initialization
-    public void Start () {
+    public virtual void Start () {
         weaponControl = gameObject.transform.parent.gameObject.GetComponent<WeaponControl>();
         weaponControl.Switched(this);
     }

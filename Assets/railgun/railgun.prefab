@@ -15374,7 +15374,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eadc2f69d2cf774c97d07504087ce2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cdPercent: 0
+  timeStamp: 0
+  onCd: 0
+  cdAmount: 1
   damage: 75
   railParticle: {fileID: 1144784137110218, guid: 84d8ff3b99625da42bea5b492fd1c771,
     type: 2}
-  cdAmount: 1
