@@ -2402,6 +2402,7 @@ MonoBehaviour:
   weaponList:
   - {fileID: 1277303562360670, guid: a8a929f43b531334bb32624eb19f1284, type: 2}
   - {fileID: 1659027764919888, guid: d5eb9a8c12593fa438cbff02bab5fedc, type: 2}
+  - {fileID: 1862252126653732, guid: 9913277eef6506f499deb9bc2c2d6638, type: 2}
 --- !u!1 &1446076087
 GameObject:
   m_ObjectHideFlags: 0
