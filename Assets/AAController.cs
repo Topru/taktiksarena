@@ -18,6 +18,7 @@ public class AAController : WeaponMaster
     public float timeLeft;
     private float cooledTime;
     public float timeToCool;
+    public float fuzeDistance;
 
     public override void Start()
     {
@@ -68,11 +69,13 @@ public class AAController : WeaponMaster
                 direction.y += randomOffset_y;
                 transform.localRotation = Quaternion.Euler(0, direction.y, 0);
                 RaycastHit hit;
-                if (Physics.Raycast(startPoint.transform.position, transform.forward, out hit))
+                if (Physics.SphereCast(startPoint.transform.position, fuzeDistance, transform.forward, out hit))
                 {
                     Vector3 position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
                     Instantiate(aaExplosion, position, gameObject.transform.rotation);
                 }
+                direction.y -= randomOffset_y;
+                transform.localRotation = Quaternion.Euler(0, direction.y, 0);
                 lastFire = Time.time;
             }
         }

@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagePerDistance: 150
-  radius: 3
+  radius: 8
 --- !u!114 &114621143269717624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -280,7 +280,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 8
       minScalar: 3
       maxCurve:
         serializedVersion: 2
@@ -688,7 +688,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 1
       minScalar: 10
       maxCurve:
         serializedVersion: 2

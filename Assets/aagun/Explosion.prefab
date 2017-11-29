@@ -49,12 +49,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1257734942516602}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7ee7ca24000e4940aa352a19742a096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerDistance: 150
+  damagePerDistance: 10
   radius: 3
 --- !u!114 &114479105903329620
 MonoBehaviour:

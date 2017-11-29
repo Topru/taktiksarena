@@ -26,7 +26,6 @@ public class Damage : MonoBehaviour {
                 float distance = Vector3.Distance(closestPoint, transform.position);
                 float damage = damagePerDistance * (1.0F - Mathf.Clamp01(distance / radius));
                 int intDamage = (int)damage;
-                Debug.Log(intDamage);
                 p.GetComponent<DamageController>().ApplyDamage(intDamage);
             }
         }
