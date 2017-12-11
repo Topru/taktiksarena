@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4870154913516972}
   - component: {fileID: 114794620730474906}
+  - component: {fileID: 82806283292684346}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Weapon
@@ -139,6 +140,86 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1961564997625200}
   m_Mesh: {fileID: 4300000, guid: a5c65e03c519a9c43bc4e7fe9d43d47c, type: 3}
+--- !u!82 &82806283292684346
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1659027764919888}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3d7bd4033cee3fb4ebfc92ca9d309cb5, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.24
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.9963074
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.9888916
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.7703705
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114794620730474906
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -150,10 +231,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba6753c04129d1740a89c0cbc9d34bf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cdPercent: 0
+  timeStamp: 0
+  onCd: 0
+  softCd: 0
+  cdAmount: 0.5
+  shootClip: {fileID: 0}
   bulletPrefab: {fileID: 1178871006579596, guid: 7ff24b8d23a8349478fb96f2b643a3c2,
     type: 2}
   bulletSpawn: {fileID: 4020593979379362}
   timeToMaxCharge: 2
   minCharge: 30
   maxCharge: 160
-  cdAmount: 0.5

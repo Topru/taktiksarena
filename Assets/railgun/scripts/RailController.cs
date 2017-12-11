@@ -11,6 +11,7 @@ public class RailController : WeaponMaster
     {
         if (!onCd)
         {
+            shootClip.Play();
             Vector3 fwd = transform.parent.TransformDirection(Vector3.forward);
             RaycastHit hit;
             GameObject startPoint = transform.Find("startpoint").gameObject;

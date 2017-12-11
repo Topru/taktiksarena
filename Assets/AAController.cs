@@ -64,7 +64,7 @@ public class AAController : WeaponMaster
             {
                 float accuracy = spread;
                 float randomOffset_y = UnityEngine.Random.Range(-(1 - accuracy), 1 - accuracy);
-
+                shootClip.Play();
                 Vector3 direction = transform.forward;
                 direction.y += randomOffset_y;
                 transform.localRotation = Quaternion.Euler(0, direction.y, 0);

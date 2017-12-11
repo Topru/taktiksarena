@@ -10,10 +10,12 @@ public class WeaponMaster : MonoBehaviour, IWeapon {
     public bool onCd;
     public bool softCd;
     public double cdAmount;
+    public AudioSource shootClip;
 
     // Use this for initialization
     public virtual void Start () {
         weaponControl = gameObject.transform.parent.gameObject.GetComponent<WeaponControl>();
+        shootClip = GetComponent<AudioSource>();
         weaponControl.Switched(this);
     }
 
