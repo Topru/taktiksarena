@@ -23,7 +23,6 @@ public class GunController : WeaponMaster
     public override void Fire()
     {
         shootClip.Play();
-        Debug.Log(shootClip.isPlaying);
         if (!onCd)
         {
             double chargeTime = Time.time - chargeStart;
