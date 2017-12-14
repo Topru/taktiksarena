@@ -16,8 +16,13 @@ public class DamageController : MonoBehaviour {
     private GameObject[] spawnList;
     private GameObject enemy;
     public GameObject weapon = null;
+    private Quaternion startRot;
+    public float flippedTime;
+    public float flippedStamp;
+    public bool flipped;
     // Use this for initialization
     void Start () {
+        startRot = gameObject.transform.rotation;
         currentHealth = maxHealth;
         spawnList = GameObject.FindGameObjectsWithTag("PlayerSpawn");
         if (gameObject.tag == "Player1")
@@ -45,6 +50,28 @@ public class DamageController : MonoBehaviour {
         if (currentArmor > maxArmor)
         {
             currentArmor = maxArmor;
+        }
+    }
+    void FixedUpdate()
+    {
+        if(flipped)
+        {
+            flippedTime = Time.time - flippedStamp;
+            if(flippedTime > 2)
+            {
+                transform.rotation = startRot;
+                flipped = false;
+            }
+        }
+        if (Vector3.Dot(transform.up, Vector3.down) > 0 && !flipped)
+        {
+            flipped = true;
+            flippedStamp = Time.time;
+        }
+        if (Vector3.Dot(transform.up, Vector3.down) == 0)
+        {
+            flipped = false;
+            flippedStamp = 0;
         }
     }
 
@@ -78,6 +105,7 @@ public class DamageController : MonoBehaviour {
             nextSpawn = spawnList[randomSpawn];
         }
         gameObject.transform.position = nextSpawn.transform.position;
+        gameObject.transform.rotation = startRot;
         gameObject.transform.LookAt(GameObject.Find("Center").transform);
         currentHealth = maxHealth;
         currentArmor = 0;

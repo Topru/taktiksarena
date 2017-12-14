@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GetWeapon : MonoBehaviour {
     public Texture railgun;
     public Texture gun;
+    public Texture aagun;
     private GameObject player;
     private RawImage image;
     private IWeapon currentWeapon;
@@ -30,14 +31,21 @@ public class GetWeapon : MonoBehaviour {
     void Update()
     {
         currentWeapon = player.GetComponent<WeaponControl>().GetWeapon();
-        string weaponName = currentWeapon.GetName();
-        if (weaponName == "railgun(Clone)")
+        if (currentWeapon != null)
         {
-            image.texture = railgun;
-        }
-        if (weaponName == "Gun(Clone)")
-        {
-            image.texture = gun;
+            string weaponName = currentWeapon.GetName();
+            if (weaponName == "railgun(Clone)")
+            {
+                image.texture = railgun;
+            }
+            if (weaponName == "Gun(Clone)")
+            {
+                image.texture = gun;
+            }
+            if (weaponName == "aagun(Clone)")
+            {
+                image.texture = aagun;
+            }
         }
     }
 }

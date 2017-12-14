@@ -8,7 +8,7 @@ public class cameraPointAt : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        speed = 2;
 	}
 
     // Update is called once per fram
